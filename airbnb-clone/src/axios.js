@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:3333', // Adjust the base URL based on your Adonis.js server configuration
+  baseURL: 'http://127.0.0.1:3333',
 });
 
 export default instance;

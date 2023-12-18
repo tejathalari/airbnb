@@ -1,12 +1,12 @@
 <!-- Footer.vue -->
 
 <template>
-    <footer class="bg-black text-white p-8 mt-8 fixed bottom-0 w-full">
-      <div class="w-full flex items-center justify-between px-10" style="height: 6vh;">
-        <button class="p-2 text-sm font-medium">ABOUT US</button>
-        <button class="p-2 text-sm font-medium">RESOURCES LINKS</button>
-        <button class="p-2 text-sm font-medium">TAGS</button>
-        <button class="p-2 text-sm font-medium">CONTACT INFO</button>
+    <footer class="bg-black text-white p-6 mt-8 fixed bottom-0 w-full">
+      <div class="w-full flex items-center justify-between px-8" style="height: 6vh;">
+        <button class="p-2 mb-10 text-sm font-medium">ABOUT US</button>
+        <button class="p-2 mb-10 text-sm font-medium">RESOURCES LINKS</button>
+        <button class="p-2 mb-10 text-sm font-medium">TAGS</button>
+        <button class="p-2 mb-10 text-sm font-medium">CONTACT INFO</button>
       </div>
     </footer>
   </template>
