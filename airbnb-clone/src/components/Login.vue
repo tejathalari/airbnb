@@ -47,17 +47,26 @@ export default {
   },
   methods: {
     async loginUser() {
-      try {
-        const response = await axios.post('/login', this.formData);
-        // Save the token to local storage or handle as needed
-        localStorage.setItem('token', response.data.token);
-        // Handle success, e.g., redirect to the home page
-        this.$router.push('/home'); // Assuming you're using Vue Router
-      } catch (error) {
-        // Handle error, e.g., display an error message
-        console.error('Login error:', error.response.data.message);
-      }
-    },
+  try {
+    const response = await axios.post('/login', this.formData);
+    console.log('Full response:', response); // Log the entire response object
+
+    // Check if response is defined and response.data is an object
+    if (response && typeof response.data === 'object') {
+      console.log('Login response:', response.data); // Log the response data to the console
+
+      // Save the token to local storage or handle as needed
+      localStorage.setItem('token', response.data.token);
+
+      // Handle success, e.g., redirect to the home page
+      this.$router.push('/home'); // Assuming you're using Vue Router
+    } else {
+      console.error('Invalid response:', response); // Log an error if response or response.data is invalid
+    }
+  } catch (error) {
+    console.error('Login error:', error.response ? error.response.data.message : error.message);
+  }
+},
   },
 };
 </script>

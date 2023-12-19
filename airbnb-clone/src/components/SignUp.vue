@@ -56,17 +56,27 @@ export default {
   methods: {
     async registerUser() {
       try {
-        const response = await axios.post('/register', this.formData);
-        // Handle success, e.g., redirect to the login page
-        this.$router.push('/login'); // Assuming you're using Vue Router
+        const response = await axios.post('/signup', this.formData);
+
+        console.log('Full response:', response); // Log the entire response object
+
+        // Check if response is defined and response.data is an object
+        if (response && typeof response.data === 'object') {
+          console.log('Signup response:', response.data); // Log the response data to the console
+          // Handle success, e.g., redirect to the login page
+          this.$router.push('/login'); // Assuming you're using Vue Router
+        } else {
+          console.error('Invalid response:', response); // Log an error if response or response.data is invalid
+        }
       } catch (error) {
-        // Handle error, e.g., display an error message
-        console.error('Registration error:', error.response.data.message);
+        console.error('Registration error:', error.response ? error.response.data.message : error.message);
       }
     },
   },
 };
 </script>
+
+
   
   <style scoped>
   /* Add any additional styles for your component here */
