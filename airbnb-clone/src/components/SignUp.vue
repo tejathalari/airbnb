@@ -21,7 +21,7 @@
       <h1 class="text-2xl px-2 mb-6">Sign Up</h1>
       <form @submit.prevent="registerUser">
         <div class="mb-4">
-          <input v-model="formData.name" type="text" placeholder="Enter Name" class="p-2 border border-gray-300 rounded-md w-64" />
+          <input v-model="formData.username" type="text" placeholder="Enter Name" class="p-2 border border-gray-300 rounded-md w-64" />
         </div>
         <div class="mb-4">
           <input v-model="formData.email" type="text" placeholder="Enter Email" class="p-2 border border-gray-300 rounded-md w-64" />
@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       formData: {
-        name: '',
+        username: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -68,9 +68,9 @@ export default {
         } else {
           console.error('Invalid response:', response); // Log an error if response or response.data is invalid
         }
-      } catch (error) {
-        console.error('Registration error:', error.response ? error.response.data.message : error.message);
-      }
+    } catch (error) {
+  console.error('Registration error:', error);
+}
     },
   },
 };

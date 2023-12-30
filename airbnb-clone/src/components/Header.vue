@@ -17,13 +17,14 @@
             d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
           />
         </svg>
-        <router-link to="/login">
-          <button class="mr-4 px-4 py-2 border-r">Login</button>
-        </router-link>
-        <router-link to="/signup">
-          <button class="px-4 py-2">Signup</button>
-        </router-link>
-      </div>
+        <router-link v-if="!isLoggedIn" to="/login">
+            <button class="mr-4 px-4 py-2">Login</button>
+          </router-link>
+          <router-link v-if="!isLoggedIn" to="/signup">
+            <button class="px-4 py-2">Signup</button>
+          </router-link>
+          <button v-if="isLoggedIn" @click="logoutUser" class="px-4 py-2">Logout</button>
+        </div>
   
       <header class="sticky top-0 left-0 w-full z-50">
         <nav class="bg-gray border-b"></nav>
@@ -47,6 +48,15 @@
               </svg>
               <a href="/" class="text-sm font-medium">Placely</a>
             </div>
+            <!-- Search Bar -->
+    <div class="mb-4">
+        <input
+          v-model="searchQuery"
+          type="text"
+          placeholder="Search by city..."
+          class="p-1 border border-gray-300 rounded w-75% ml-40 mt-4"
+        />
+      </div>
             <!-- Navigation Buttons (Right Side) -->
             <div class="flex space-x-4">
               <router-link to="/">
@@ -65,8 +75,22 @@
   </template>
   
   <script>
-  export default {
-    name: 'Header'
-  }
-  </script>
-  
+export default {
+  name: 'Header',
+  computed: {
+    isLoggedIn() {
+      // Implement a mechanism to check if the user is logged in, e.g., using Vuex
+      // For simplicity, you can store a token in localStorage upon login and check its presence
+      return localStorage.getItem('token') !== null;
+    },
+  },
+  methods: {
+    logoutUser() {
+      // Implement logout functionality, e.g., clear localStorage
+      localStorage.removeItem('token');
+      // Redirect to the home page or another appropriate page
+      this.$router.push('/');
+    },
+  },
+};
+</script>

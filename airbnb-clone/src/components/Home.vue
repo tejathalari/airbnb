@@ -1,10 +1,12 @@
 <template>
     <div class="container mx-auto  mt-8 mb-40">
       <div class="container mx-auto mt-8 flex items-center">
-        <img src="/org.jpeg" alt="Featured Image" class="w-auto h-auto mb-8 ml-60">
+        <img src="/org.jpeg" alt="Featured Image" class="w-auto h-auto mb-8 ml-28">
     </div>
       <h2 class="text-2xl font-semibold mb-4">Featured Listings</h2>
-  
+
+    
+    
       <!-- Listing Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Listing 1 -->
@@ -90,8 +92,13 @@
   <script>
   export default {
     name: 'Home',
+    data() {
+      return {
+        searchQuery: '',
+      };
+    },
     // Add any other necessary options or logic
-  }
+  };
   </script>
   
   <style scoped>
