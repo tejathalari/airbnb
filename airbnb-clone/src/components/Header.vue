@@ -48,15 +48,34 @@
               </svg>
               <a href="/" class="text-sm font-medium">Placely</a>
             </div>
-            <!-- Search Bar -->
-    <div class="mb-4">
-        <input
-          v-model="searchQuery"
-          type="text"
-          placeholder="Search by city..."
-          class="p-1 border border-gray-300 rounded w-75% ml-40 mt-4"
-        />
-      </div>
+
+
+            <div class="flex items-center border border-gray-200 bg-white rounded-full shadow-md">
+                <button class="px-1 rounded-l-full border-r border-gray-300">
+                    Anywhere
+                </button>
+                <button class="px-3 border-r border-gray-300">
+                    Any week
+                </button>
+                <button class="px-3 border-r border-gray-300">
+                    Add guests
+                </button>
+                <div v-if="showSearchInput" class="flex-grow">
+                  <input
+                    v-model="searchQuery"
+                    type="text"
+                    placeholder="Search by city..."
+                    class="p-1 w-full border-none focus:outline-none"
+                  />
+                </div>
+                <button @click="toggleSearchInput" class="px-4 py-1 rounded-r-full bg-red-500 text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>
+                </button>
+              </div>
+            
+            
             <!-- Navigation Buttons (Right Side) -->
             <div class="flex space-x-4">
               <router-link to="/">
@@ -77,6 +96,12 @@
   <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+        searchQuery: '',
+        showSearchInput: false,
+    };
+  },
   computed: {
     isLoggedIn() {
       // Implement a mechanism to check if the user is logged in, e.g., using Vuex
@@ -85,6 +110,9 @@ export default {
     },
   },
   methods: {
+    toggleSearchInput() {
+        this.showSearchInput = !this.showSearchInput;
+    },
     logoutUser() {
       // Implement logout functionality, e.g., clear localStorage
       localStorage.removeItem('token');
