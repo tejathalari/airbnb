@@ -1,16 +1,15 @@
 <template>
     <div class="container mx-auto mb-1">
       <div class="flex items-center space-x-8 mb-0">
-        <div class="flex flex-col items-center relative">
-            
-            <a href="/" class="text-sm font-medium relative group">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mb-1 ml-2 transition-transform transform group-hover:scale-110">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        <div class="flex flex-col items-center group">
+          <a href="/" class="text-sm font-medium relative">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mb-1 ml-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
             </svg>
-            <span class="mr-2 transition-opacity opacity-100 group-hover:opacity-75">cabins</span>
-            <span class="line"></span>
+            <span class="mr-2 transition-opacity opacity-100 border-b-2 border-gray-500">Cabins</span>
           </a>
         </div>
+        
  
           <div class="flex flex-col items-center group">
                        
@@ -95,8 +94,8 @@
                         
 
                         <div class="p-4 flex items-center ml-1 group">
-                          <div class="flex flex-col items-center relative group">                                                                                                                    
-                              <a href="/" class="text-sm font-medium ml-6">
+                          <div class="flex flex-col items-center">                                                                                                                    
+                              <a href="/" class="text-sm font-medium ml-6 relative group">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-7 transition-transform transform group-hover:scale-110">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819" />
                                 </svg> 
@@ -130,8 +129,17 @@
       </div>
     </div>
     </div>
+    
 
       <h2 class="text-2xl font-semibold">Featured Listings</h2>
+
+      <!-- Show Map Button -->
+<div class="fixed bottom-16 left-1/2 transform -translate-x-1/2 z-10">
+  <button @click="toggleMap" class="bg-blue-500 text-white rounded-full py-2 px-4 text-sm font-semibold">
+    Show Map
+  </button>
+</div>
+
 
       <!-- Listing Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-10">
@@ -139,24 +147,31 @@
         <div class="bg-white p-4 rounded-lg shadow-md transition transform hover:shadow-lg cursor-pointer">
             <a href="/">
               
-              <img src="/photo1.jpeg" alt="Listing 1" class="mb-4 w-full h-48 object-cover rounded-md">
+              <img src="/airbnb1.webp" alt="Listing 1" class="mb-4 w-full h-48 object-cover rounded-md">
               <div class="absolute top-6 right-6">
                 <!-- Love Icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
                 </svg>
             </div>
-              <h3 class="text-lg font-semibold mb-2">Luxury Home</h3>
-              <p class="text-gray-500 text-sm mb-2">Full luxury home | 2-bed 3-bath</p>
-              <p class="text-gray-500 text-sm mb-2">Jan 9-11</p>
-              <p class="text-gray-600 font-semibold">$120/night</p>
+            <div class="absolute top-6 left-6">
+              <!-- Round Favorite Button -->
+              <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+          </div>
+              <h3 class="text-lg font-semibold mb-2">New Braufels, Texas</h3>
+              <p class="text-gray-500 text-sm mb-2">39 miles away</p>
+              <p class="text-gray-500 text-sm mb-2">5 nights- Feb 11-16</p>
+              <p class="text-gray-600 font-semibold">$1,707 total before taxes</p>
             </a>
           </div>
+
+
+          
   
         <!-- Listing 2 -->
         <div class="bg-white p-4 rounded-lg shadow-md transition transform hover:shadow-lg cursor-pointer relative">
           <a href="/">
-          <img src="/photo3.jpeg" alt="Listing 3" class="mb-4 w-full h-48 object-cover rounded-md">
+          <img src="/airbnb2.webp" alt="Listing 3" class="mb-4 w-full h-48 object-cover rounded-md">
           <div class="absolute top-6 right-6">
               <!-- Love Icon -->
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
@@ -164,10 +179,14 @@
               </svg>
             
           </div>
-          <h3 class="text-lg font-semibold mb-2">Modern Villa</h3>
-          <p class="text-gray-500 text-sm mb-2">Modern villa | 3-bed 2-bath</p>
-          <p class="text-gray-500 text-sm mb-2">Jan 13-15</p>
-          <p class="text-gray-600 font-semibold">$150/night</p>
+          <div class="absolute top-6 left-6">
+            <!-- Round Favorite Button -->
+            <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+        </div>
+          <h3 class="text-lg font-semibold mb-2">Austin, Texas</h3>
+          <p class="text-gray-500 text-sm mb-2">2 miles away</p>
+          <p class="text-gray-500 text-sm mb-2">5 nights Jan 14-19</p>
+          <p class="text-gray-600 font-semibold">$530 total before taxes</p>
           </a>
       </div>
       
@@ -175,119 +194,144 @@
         <!-- Listing 3 -->
         <div class="bg-white p-4 rounded-lg shadow-md transition transform hover:shadow-lg cursor-pointer">
           <a href="/">
-          <img src="/photo3.jpeg" alt="Listing 3" class="mb-4 w-full h-48 object-cover rounded-md">
+          <img src="/airbnb3.webp" alt="Listing 3" class="mb-4 w-full h-48 object-cover rounded-md">
           <div class="absolute top-6 right-6">
             <!-- Love Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
             </svg>
         </div>
-          <h3 class="text-lg font-semibold mb-2">Modern Villa</h3>
-          <p class="text-gray-500 text-sm mb-2">Modern villa | 3-bed 2-bath</p>
-          <p class="text-gray-500 text-sm mb-2">Jan 13-15</p>
-          <p class="text-gray-600 font-semibold">$150/night</p>
+        <div class="absolute top-6 left-6">
+          <!-- Round Favorite Button -->
+          <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+      </div>
+          <h3 class="text-lg font-semibold mb-2">Canyon Lake, Texas</h3>
+          <p class="text-gray-500 text-sm mb-2">42 miles away</p>
+          <p class="text-gray-500 text-sm mb-2">5 nights Jan 11-16</p>
+          <p class="text-gray-600 font-semibold">$1,500 total before taxes</p>
           </a>
         </div>
+
   
         <!-- Listing 4 -->
         <div class="bg-white p-4 rounded-lg shadow-md transition transform hover:shadow-lg cursor-pointer">
           <a href="/">
-          <img src="/photo4.jpeg" alt="Listing 4" class="mb-4 w-full h-48 object-cover rounded-md">
+          <img src="/airbnb4.webp" alt="Listing 4" class="mb-4 w-full h-48 object-cover rounded-md">
           <div class="absolute top-6 right-6">
             <!-- Love Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
             </svg>
         </div>
-          <h3 class="text-lg font-semibold mb-2">Luxury Home</h3>
-          <p class="text-gray-500 text-sm mb-2">Full luxury home | 2-bed 3-bath</p>
-          <p class="text-gray-500 text-sm mb-2">Jan 15-17</p>
-          <p class="text-gray-600 font-semibold">$120/night</p>
+        <div class="absolute top-6 left-6">
+          <!-- Round Favorite Button -->
+          <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+      </div>
+          <h3 class="text-lg font-semibold mb-2">Wimberley, Texas</h3>
+          <p class="text-gray-500 text-sm mb-2">27 miles away</p>
+          <p class="text-gray-500 text-sm mb-2">5 nights Feb 15-17</p>
+          <p class="text-gray-600 font-semibold">$1,255 ttal before taxes</p>
           </a>
         </div>
   
         <!-- Listing 5 -->
         <div class="bg-white p-4 rounded-lg shadow-md transition transform hover:shadow-lg cursor-pointer">
           <a href="/">
-          <img src="/photo6.jpeg" alt="Listing 5" class="mb-4 w-full h-48 object-cover rounded-md">
+          <img src="/airbnb5.webp" alt="Listing 5" class="mb-4 w-full h-48 object-cover rounded-md">
           <div class="absolute top-6 right-6">
             <!-- Love Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
             </svg>
         </div>
-          <h3 class="text-lg font-semibold mb-2">Cozy Apartment</h3>
-          <p class="text-gray-500 text-sm mb-2">Cozy apartment | 1-bed 1-bath</p>
-          <p class="text-gray-500 text-sm mb-2">Jan 17-19</p>
-          <p class="text-gray-600 font-semibold">$80/night</p>
+        <div class="absolute top-6 left-6">
+          <!-- Round Favorite Button -->
+          <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+      </div>
+          <h3 class="text-lg font-semibold mb-2">Leander, Texas</h3>
+          <p class="text-gray-500 text-sm mb-2">15 miles away</p>
+          <p class="text-gray-500 text-sm mb-2">5 nights Jan 17-19</p>
+          <p class="text-gray-600 font-semibold">$3,241 total before taxes</p>
           </a>
         </div>
   
         <!-- Listing 6 -->
         <div class="bg-white p-4 rounded-lg shadow-md transition transform hover:shadow-lg cursor-pointer">
           <a href="/">
-          <img src="/photo5.jpeg" alt="Listing 6" class="mb-4 w-full h-48 object-cover rounded-md">
+          <img src="/airbnb6.webp" alt="Listing 6" class="mb-4 w-full h-48 object-cover rounded-md">
           <div class="absolute top-6 right-6">
             <!-- Love Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
             </svg>
         </div>
-          <h3 class="text-lg font-semibold mb-2">Modern Villa</h3>
-          <p class="text-gray-500 text-sm mb-2">Modern villa | 3-bed 2-bath</p>
-          <p class="text-gray-500 text-sm mb-2">Jan 19-21</p>
-          <p class="text-gray-600 font-semibold">$150/night</p>
+        <div class="absolute top-6 left-6">
+          <!-- Round Favorite Button -->
+          <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+      </div>
+          <h3 class="text-lg font-semibold mb-2">New Braunfels, Texas</h3>
+          <p class="text-gray-500 text-sm mb-2">38 miles away</p>
+          <p class="text-gray-500 text-sm mb-2">5 nights Jan 23-28</p>
+          <p class="text-gray-600 font-semibold">$1,357 total before taxes</p>
           </a>
         </div>
          
         <!-- Listing 7 -->
         <div class="bg-white p-4 rounded-lg shadow-md transition transform hover:shadow-lg cursor-pointer">
           <a href="/">
-            <img src="/photo7.jpeg" alt="Listing 4" class="mb-4 w-full h-48 object-cover rounded-md">
+            <img src="/airbnb7.webp" alt="Listing 4" class="mb-4 w-full h-48 object-cover rounded-md">
             <div class="absolute top-6 right-6">
               <!-- Love Icon -->
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
               </svg>
           </div>
-            <h3 class="text-lg font-semibold mb-2">Luxury Home</h3>
-            <p class="text-gray-500 text-sm mb-2">Full luxury home | 2-bed 3-bath</p>
-            <p class="text-gray-500 text-sm mb-2">Jan 21-23</p>
-            <p class="text-gray-600 font-semibold">$120/night</p>
+          <div class="absolute top-6 left-6">
+            <!-- Round Favorite Button -->
+            <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+        </div>
+            <h3 class="text-lg font-semibold mb-2">Kyle, Texas</h3>
+            <p class="text-gray-500 text-sm mb-2">21 miles away</p>
+            <p class="text-gray-500 text-sm mb-2">5 nights Jan 21-23</p>
+            <p class="text-gray-600 font-semibold">$1,048 total before taxes</p>
             </a>
           </div>
     
           <!-- Listing 8 -->
           <div class="bg-white p-4 rounded-lg shadow-md transition transform hover:shadow-lg cursor-pointer">
             <a href="/">
-            <img src="/photo8.jpeg" alt="Listing 5" class="mb-4 w-full h-48 object-cover rounded-md">
+            <img src="/airbnb8.webp" alt="Listing 5" class="mb-4 w-full h-48 object-cover rounded-md">
             <div class="absolute top-6 right-6">
               <!-- Love Icon -->
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
               </svg>
           </div>
-            <h3 class="text-lg font-semibold mb-2">Cozy Apartment</h3>
-            <p class="text-gray-500 text-sm mb-2">Cozy apartment | 1-bed 1-bath</p>
-            <p class="text-gray-500 text-sm mb-2">Jan 23-25</p>
-            <p class="text-gray-600 font-semibold">$80/night</p>
+          <h3 class="text-lg font-semibold mb-2">Austin, Texas</h3>
+            <p class="text-gray-500 text-sm mb-2">3 miles</p>
+            <p class="text-gray-500 text-sm mb-2">5 nights Jan 25-27</p>
+            <p class="text-gray-600 font-semibold">$640 total before Taxes</p>
             </a>
           </div>
     
           <!-- Listing 9 -->
           <div class="bg-white p-4 rounded-lg shadow-md transition transform hover:shadow-lg cursor-pointer">
             <a href="/">
-            <img src="/photo9.jpeg" alt="Listing 6" class="mb-4 w-full h-48 object-cover rounded-md">
+            <img src="/airbnb9.webp" alt="Listing 6" class="mb-4 w-full h-48 object-cover rounded-md">
             <div class="absolute top-6 right-6">
               <!-- Love Icon -->
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="gray" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
               </svg>
           </div>
-            <h3 class="text-lg font-semibold mb-2">Modern Home</h3>
-            <p class="text-gray-500 text-sm mb-2">Modern villa | 3-bed 2-bath</p>
-            <p class="text-gray-500 text-sm mb-2">Jan 25-27</p>
-            <p class="text-gray-600 font-semibold">$150/night</p>
+          <div class="absolute top-6 left-6">
+            <!-- Round Favorite Button -->
+            <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Wimberley, Texas</h3>
+        <p class="text-gray-500 text-sm mb-2">26 miles away</p>
+        <p class="text-gray-500 text-sm mb-2">5 nights Jan 23-25</p>
+        <p class="text-gray-600 font-semibold">$1,278 total before taxes</p>
             </a>
           </div>
 
@@ -300,6 +344,10 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
                 </svg>
             </div>
+            <div class="absolute top-6 left-6">
+              <!-- Round Favorite Button -->
+              <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+          </div>
               <h3 class="text-lg font-semibold mb-2">Luxury Home</h3>
               <p class="text-gray-500 text-sm mb-2">Full luxury home | 2-bed 3-bath</p>
               <p class="text-gray-500 text-sm mb-2">Jan 9-11</p>
@@ -317,6 +365,10 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
             </svg>
         </div>
+        <div class="absolute top-6 left-6">
+          <!-- Round Favorite Button -->
+          <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+      </div>
           <h3 class="text-lg font-semibold mb-2">Cozy Apartment</h3>
           <p class="text-gray-500 text-sm mb-2">Cozy apartment | 1-bed 1-bath</p>
           <p class="text-gray-500 text-sm mb-2">Jan 11-13</p>
@@ -334,6 +386,10 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
             </svg>
         </div>
+        <div class="absolute top-6 left-6">
+          <!-- Round Favorite Button -->
+          <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+      </div>
           <h3 class="text-lg font-semibold mb-2">Modern Villa</h3>
           <p class="text-gray-500 text-sm mb-2">Modern villa | 3-bed 2-bath</p>
           <p class="text-gray-500 text-sm mb-2">Jan 13-15</p>
@@ -351,6 +407,10 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
             </svg>
         </div>
+        <div class="absolute top-6 left-6">
+          <!-- Round Favorite Button -->
+          <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+      </div>
           <h3 class="text-lg font-semibold mb-2">Luxury Home</h3>
           <p class="text-gray-500 text-sm mb-2">Full luxury home | 2-bed 3-bath</p>
           <p class="text-gray-500 text-sm mb-2">Jan 15-17</p>
@@ -368,6 +428,10 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
             </svg>
         </div>
+        <div class="absolute top-6 left-6">
+          <!-- Round Favorite Button -->
+          <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+      </div>
           <h3 class="text-lg font-semibold mb-2">Cozy Apartment</h3>
           <p class="text-gray-500 text-sm mb-2">Cozy apartment | 1-bed 1-bath</p>
           <p class="text-gray-500 text-sm mb-2">Jan 17-19</p>
@@ -385,6 +449,10 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
             </svg>
         </div>
+        <div class="absolute top-6 left-6">
+          <!-- Round Favorite Button -->
+          <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+      </div>
           <h3 class="text-lg font-semibold mb-2">Modern Villa</h3>
           <p class="text-gray-500 text-sm mb-2">Modern villa | 3-bed 2-bath</p>
           <p class="text-gray-500 text-sm mb-2">Jan 19-21</p>
@@ -402,6 +470,10 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
               </svg>
           </div>
+          <div class="absolute top-6 left-6">
+            <!-- Round Favorite Button -->
+            <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+        </div>
             <h3 class="text-lg font-semibold mb-2">Luxury Home</h3>
             <p class="text-gray-500 text-sm mb-2">Full luxury home | 2-bed 3-bath</p>
             <p class="text-gray-500 text-sm mb-2">Jan 21-23</p>
@@ -419,6 +491,10 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
               </svg>
           </div>
+          <div class="absolute top-6 left-6">
+            <!-- Round Favorite Button -->
+            <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+        </div>
             <h3 class="text-lg font-semibold mb-2">Cozy Apartment</h3>
             <p class="text-gray-500 text-sm mb-2">Cozy apartment | 1-bed 1-bath</p>
             <p class="text-gray-500 text-sm mb-2">Jan 23-25</p>
@@ -436,6 +512,10 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.416-1.416C5.053 14.48 2 11.385 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.58 2 24 4.42 24 7.5c0 3.885-3.053 6.98-8.584 12.084L12 21z" />
               </svg>
           </div>
+          <div class="absolute top-6 left-6">
+            <!-- Round Favorite Button -->
+            <button class="bg-gray-200 text-black rounded-full py-2 px-4 text-xs font-semibold"> GUest favorite</button>
+        </div>
             <h3 class="text-lg font-semibold mb-2">Modern Home</h3>
             <p class="text-gray-500 text-sm mb-2">Modern villa | 3-bed 2-bath</p>
             <p class="text-gray-500 text-sm mb-2">Jan 25-27</p>
@@ -445,21 +525,30 @@
   
         <!-- Add more listings as needed -->
       </div>
+      <div v-if="showMap" class="map absolute top-0 left-0 w-full h-full bg-white z-20">
+        <!-- Your map content goes here -->
+      </div>
       <!-- End of Listing Cards -->
     </div>
   </template>
   
   <script>
-  export default {
-    name: 'Home',
-    data() {
-      return {
-        searchQuery: '',
-      };
+export default {
+  name: 'Home',
+  data() {
+    return {
+      showMap: false,
+      searchQuery: '',
+    };
+  },
+  methods: {
+    toggleMap() {
+      this.showMap = !this.showMap;
     },
-    // Add any other necessary options or logic
-  };
-  </script>
+  },
+};
+</script>
+
   
   <style scoped>
 .line {
@@ -477,4 +566,10 @@
 .group:hover .line {
   transform: scaleX(1); /* Visible line on hover */
 }
+
+.map {
+  position: fixed;
+  /* Other styling for the map */
+}
+
 </style>
