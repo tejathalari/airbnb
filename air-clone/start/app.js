@@ -46,7 +46,10 @@ const aceProviders = [
 |   { Route: 'Adonis/Src/Route' }
 |
 */
-const aliases = {}
+const aliases = {
+  // ... other aliases
+  Cors: 'Adonis/Middleware/Cors',
+}
 
 /*
 |--------------------------------------------------------------------------
