@@ -18,7 +18,7 @@
             </svg>
             <a href="/" class="text-sm font-medium">Placely</a>
       </div>
-      <h1 class="text-2xl px-2 mb-6">Login</h1>
+      <h1 class="text-2xl px-2 mb-6">Login</h1> 
       <form @submit.prevent="loginUser">
         <div class="mb-4">
           <input v-model="formData.email" type="text" placeholder="Enter Email" class="p-2 border border-gray-300 rounded-md w-64" />

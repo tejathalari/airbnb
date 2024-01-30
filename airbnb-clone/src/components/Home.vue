@@ -132,14 +132,18 @@
     
 
       <h2 class="text-2xl font-semibold">Featured Listings</h2>
+      <div>
+        <router-link to="/map" class="fixed bottom-16 left-1/2 transform -translate-x-1/2 z-10">
+          <button @click="toggleMap" class="bg-black text-white rounded-full py-2 px-4 text-sm font-semibold">
+            Show Map
+          </button>
+        </router-link>
+    
+        <!-- Include the Map component when showMap is true -->
+      </div>
 
-      <!-- Show Map Button -->
-<div class="fixed bottom-16 left-1/2 transform -translate-x-1/2 z-10">
-  <button @click="toggleMap" class="bg-blue-500 text-white rounded-full py-2 px-4 text-sm font-semibold">
-    Show Map
-  </button>
-</div>
-
+      
+      
 
       <!-- Listing Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-10">
@@ -525,16 +529,17 @@
   
         <!-- Add more listings as needed -->
       </div>
-      <div v-if="showMap" class="map absolute top-0 left-0 w-full h-full bg-white z-20">
-        <!-- Your map content goes here -->
-      </div>
       <!-- End of Listing Cards -->
     </div>
   </template>
   
   <script>
+import Map from './Map.vue';
 export default {
   name: 'Home',
+  components: {
+    Map,
+  },
   data() {
     return {
       showMap: false,
@@ -543,7 +548,7 @@ export default {
   },
   methods: {
     toggleMap() {
-      this.showMap = !this.showMap;
+      this.$router.push('/map');
     },
   },
 };
@@ -567,9 +572,6 @@ export default {
   transform: scaleX(1); /* Visible line on hover */
 }
 
-.map {
-  position: fixed;
-  /* Other styling for the map */
-}
+
 
 </style>
