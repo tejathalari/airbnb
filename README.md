@@ -1,3 +1,8 @@
+airbnb-clone is the frontend part using vue js and Tailwind.
+
+air-clone is the backend part using adonis js(type script) and postgre sql database for user Authentication.
+
+
 ## 15-Day Project Plan: Building a Minimal Airbnb Clone
 
 ### Day 1-2: Project Setup and Planning
