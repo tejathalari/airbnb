@@ -1,29 +1,15 @@
 <template>
     <div>
-      <div class="flex justify-end items-center bg-gray-200 p-1">
-        <button class="border-r border-gray-400 px-3 py-2">USA, Dollar(USD/$)</button>
-        <button class="border-r border-gray-400 px-4 py-2">English</button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-4 h-4 ml-4"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-          />
-        </svg>
-        <router-link v-if="!isLoggedIn" to="/login">
-            <button class="mr-4 px-4 py-2">Login</button>
-          </router-link>
-          <router-link v-if="!isLoggedIn" to="/signup">
-            <button class="px-4 py-2">Signup</button>
-          </router-link>
-          <button v-if="isLoggedIn" @click="logoutUser" class="px-4 py-2">Logout</button>
+        <div class="flex justify-end items-center bg-gray-200 p-1 space-x-6">
+            <button class="border-r border-gray-400 px-4 py-2 text-sm rounded-md bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300">USA, Dollar(USD/$)</button>
+            <button class="border-r border-gray-400 px-4 py-2 text-sm rounded-md bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300">English</button>
+            <router-link v-if="!isLoggedIn" to="/login">
+                <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-4 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 transition duration-300">Login</button>
+            </router-link>
+            <router-link v-if="!isLoggedIn" to="/signup">
+                <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-4 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 transition duration-300">SignUp</button>
+            </router-link>
+            <button v-if="isLoggedIn" @click="logoutUser" class="px-4 py-2 text-sm rounded-md bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:bg-red-600 transition duration-300">Logout</button>
         </div>
   
       <header class="sticky top-0 left-0 w-full z-50">
@@ -77,15 +63,26 @@
             
             
             <!-- Navigation Buttons (Right Side) -->
-            <div class="flex space-x-4">
+            <div class="flex space-x-4 mt-3">
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <router-link to="/">
-                <button class="p-3 hover:bg-gray-100 text-sm font-medium">HOME</button>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+                  </li>
               </router-link>
-              <button class="p-3 hover:bg-gray-100 text-sm font-medium">ABOUT US</button>
-              <button class="p-3 hover:bg-gray-100 text-sm font-medium">BLOG</button>
-              <button class="p-3 hover:bg-gray-100 text-sm font-medium">CONTACT US</button>
-              <button class="p-3 hover:bg-gray-100 text-sm font-medium">HELP</button>
-              <button class="bg-green-400 p-3 text-sm font-medium">LIST YOUR ROOM</button>
+              <li>
+                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About US</a>
+              </li>
+              <li>
+                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Blog</a>
+              </li>
+              <li>
+                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact US</a>
+              </li>
+              </ul>
+              </div>
+              <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">List Your Room</button>
             </div>
           </div>
         </nav>

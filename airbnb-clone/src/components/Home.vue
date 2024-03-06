@@ -11,7 +11,7 @@
         </div>
         
  
-          <div class="flex flex-col items-center group">
+          <div class="flex flex-col items-center group mr-2">
                        
               <a href="/" class="text-sm font-medium ml-10 mr-0 mt-4 mb-4 relative group">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-4 mt-1 transition-transform transform group-hover:scale-110">
@@ -22,7 +22,7 @@
               </a>
           </div>
 
-            <div class="flex flex-col items-center group">
+            <div class="flex flex-col items-center group mr-2">
               
                        
                 <a href="/" class="text-sm font-medium ml-6 relative group">
@@ -33,7 +33,7 @@
                   <span class="line"></span>
                 </a>
             </div>
-              <div class="flex flex-col items-center group">              
+              <div class="flex flex-col items-center group mr-2">              
                          
                   <a href="/" class="text-sm font-medium ml-6 relative group">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2 transition-transform transform group-hover:scale-110">
@@ -44,7 +44,7 @@
                   </a>
               </div>
 
-              <div class="flex flex-col items-center group">                                           
+              <div class="flex flex-col items-center group mr-2">                                           
                 <a href="/" class="text-sm font-medium ml-6 relative group">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-5 transition-transform transform group-hover:scale-110">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
@@ -104,7 +104,7 @@
                               </a>
                           </div>
 
-                          <div class="flex items-center border border-gray-400 rounded-full shadow-md ml-6 p-1">
+                          <div class="flex items-center border border-gray-400 rounded-full shadow-md ml-6 p-1 mr-8">
                             <div class="flex items-center ml-2">
                                 <!-- SVG Icon -->
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-black">
@@ -112,14 +112,14 @@
                                 </svg>                                
                                         
                                 <!-- Name -->
-                                <a href="/" class="ml-2 text-black text-lg font-semibold">Filters</a>
+                                <a href="/" class="ml-2 text-black text-md font-semibold">Filters</a>
                             </div>
                         </div>
 
                         <div class="flex items-center border border-gray-300 rounded shadow-md mr-1 ml-1 p-1 flex-col">
                           <div class="flex items-center ml-1 mr-2">  
                               <!-- Name -->
-                              <a href="/" class="ml-2 text-gray-800 text-lg font-semibold">Display</a>
+                              <a href="/" class="ml-2 text-gray-800 text-md font-semibold">Display</a>
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
                               </svg>
@@ -131,7 +131,7 @@
     </div>
     
 
-      <h2 class="text-2xl font-semibold">Featured Listings</h2>
+      <h2 class="text-xl font-semibold">Featured Listings</h2>
       <div>
         <router-link to="/map" class="fixed bottom-16 left-1/2 transform -translate-x-1/2 z-10">
           <button @click="toggleMap" class="bg-black text-white rounded-full py-2 px-4 text-sm font-semibold">
